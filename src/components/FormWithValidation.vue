@@ -72,35 +72,27 @@
                     'background: linear-gradient(to right, #A7CECC 80%, #DBDBDB 80%);',
                     'background: linear-gradient(to right, #A7CECC 100%, #DBDBDB 100%);'
                 ],
-                progressBarStatus: 0,
                 isForm: true
             }
         },
         methods: {
             validator(index) {
                 !this.info[index].active ? this.info[index].active = true : '';
-                if (new RegExp(this.info[index].pattern).test(this.info[index].value)) {
-                    if (!this.info[index].valid) {
-                        this.info[index].valid = true;
-                        this.progressBarStatus++;
-                    }
+                this.info[index].valid = this.info[index].pattern.test(this.info[index].value)
+            }
+        },
+        computed: {
+            progressBarStatus() {
+                let progressBarStatus = 0;
+                for (let i in this.info) {
+                    this.info[i].valid === true ? progressBarStatus++ : ''
                 }
-                else {
-                    if (this.info[index].valid) {
-                        this.info[index].valid = false;
-                        this.progressBarStatus--;
-                    }
-                }
+                return progressBarStatus;
             }
         },
         watch: {
             progressBarStatus() {
-                if(this.progressBarStatus === 5) {
-                    this.isForm = false
-                }
-                else {
-                    this.isForm = true
-                }
+                this.progressBarStatus === 5 ? this.isForm = false : this.isForm = true
             }
         }
 

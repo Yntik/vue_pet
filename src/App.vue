@@ -1,7 +1,7 @@
 <template>
-    <checkbox-form>
+    <FormWithValidation>
 
-    </checkbox-form>
+    </FormWithValidation>
 </template>
 
 <script>
