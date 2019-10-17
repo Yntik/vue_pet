@@ -3,19 +3,19 @@
         <form v-if="isForm" class="form-content">
             <div class="input-wrap">
                 <label>Email</label>
-                <input type="email" v-model="person.email" />
+                <input type="email" v-model="person.email"/>
             </div>
             <div class="input-wrap">
                 <label>First name</label>
-                <input type="text" v-model="person.firstName" />
+                <input type="text" v-model="person.firstName"/>
             </div>
             <div class="input-wrap">
                 <label>Last name</label>
-                <input type="text" v-model="person.lastName" />
+                <input type="text" v-model="person.lastName"/>
             </div>
             <div class="input-wrap">
                 <label>Phone</label>
-                <input type="text" v-model.number="person.phone" />
+                <input type="text" v-model.number="person.phone"/>
             </div>
             <div class="add-guests-wrap">
                 <div @click="addGuest">
@@ -24,11 +24,9 @@
                 </div>
             </div>
             <div class="guests-list">
-                <div v-for="(guest, i) in guests">
-                    <div class="input-wrap">
-                        <label @click="removeGuest(i)">Guest {{i + 1}}</label>
-                        <input type="text" v-model="guest.name">
-                    </div>
+                <div class="input-wrap" v-for="(guest, i) in guests">
+                    <label @click="guests.splice(i, 1);">Guest {{i + 1}}</label>
+                    <input type="text" v-model="guest.name">
                 </div>
 
             </div>
@@ -78,9 +76,6 @@
                 this.guests.push({
                     name: ''
                 })
-            },
-            removeGuest(i) {
-                this.guests.splice(i, 1);
             }
         }
     }
@@ -90,7 +85,7 @@
     .container {
         display: grid;
         grid-template-columns: 1fr 400px 1fr;
-        .form-content{
+        .form-content {
             grid-column: 2/span 1;
             .input-wrap, .guests-list {
                 display: flex;
