@@ -1,7 +1,7 @@
 <template>
-    <CustomDirective>
+    <form-with-validation>
 
-    </CustomDirective>
+    </form-with-validation>
 </template>
 
 <script>
@@ -9,7 +9,8 @@
   import Form from './components/Form.vue'
   import FormWithValidation from './components/FormWithValidation.vue'
   import CheckboxForm from './components/CheckboxForm.vue'
-  import CustomDirective from "./components/CustomDirective.vue";
+  import CustomDirective from "./components/CustomDirective.vue"
+  import myInput from './components/myInput.vue'
 
   export default {
     name: 'app',
@@ -18,7 +19,8 @@
       HelloWorld,
       Form,
       FormWithValidation,
-      CheckboxForm
+      CheckboxForm,
+      myInput
     }
   }
 </script>
