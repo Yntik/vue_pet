@@ -81,7 +81,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .container {
         display: grid;
         grid-template-columns: 1fr 400px 1fr;

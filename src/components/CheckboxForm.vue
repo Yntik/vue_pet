@@ -156,7 +156,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .content {
         grid-column: 2/span 1;
         height: 600px;
